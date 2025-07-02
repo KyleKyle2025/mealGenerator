@@ -1,0 +1,56 @@
+body {
+  background: linear-gradient(135deg, #f9f9f9, #ffe8d6);
+}
+
+h1 {
+  font-family: 'Arial', sans-serif;
+color: #5a3e36;
+
+  font-weight: 700;
+
+}
+
+.container p {
+  font-family: 'Arial', sans-serif;
+  color: #5a3e36;
+  font-size: 1.2rem;
+  margin-top: 10px;}
+
+
+
+.card {
+    width: 90%;
+    margin: 80px auto 0;
+    max-width: 470px;
+    text-align: center;
+    padding: 40px 35px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #f6d365, #c78f6b);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+    color: #fff;
+
+}
+
+.btn {
+    color: white;
+    font-size: larger;
+    font-weight: 600;
+    font-family: poppins, sans-serif;
+    padding: 10px 20px;
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .card {
+    padding: 20px;
+  }
+}
+
+h3 {
+  font-family: poppins, sans-serif ;
+  font-size: 3rem;
+}
