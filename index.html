@@ -15,36 +15,39 @@
       <p>Discover delicious meal ideas tailored just for you!</p>
     </div>
 
-    <div class="card mx-auto mt-5 px-3" style="max-width: 90%;">
+    <div class="card mx-auto mt-5 px-3 pb-4" style="max-width: 90%;">
       <div class="card-body text-center" id="meal-suggestion">
         <h2 class="fw-bolder mb-3">Today's meal suggestion:</h2>
         <h3 class="mb-4 meal-name">Click the button to get a tasty surprise!</h3>
 
-        <!-- Placeholder shown by default -->
+        <!-- Placeholder image shown initially -->
         <img 
           src="./images/plate.jpg" 
-          class="img-fluid rounded mb-4 placeholder-img" 
+          class="img-fluid rounded mb-4 placeholder-img mx-auto d-block" 
           alt="Placeholder Meal"
         />
-<div class="ratio ratio-16x9 mb-3" style="display: none;">
-          <iframe 
-            allow="fullscreen"
-            class="meal-video" 
-            src="" 
-            allowfullscreen
-            title="Meal Video">
-          </iframe>
-        </div>
-        <!-- Real meal image hidden until click -->
+
+        <!-- Meal image (shown after fetching) -->
         <img 
           src="" 
-          class="img-fluid rounded mb-4 meal-thumb" 
+          class="img-fluid rounded mb-4 meal-thumb mx-auto d-block" 
           alt="Meal Image" 
           style="display: none;"
         />
+
+        <!-- YouTube video (shown if available) -->
+        <div class="ratio ratio-16x9 mb-3" style="display: none;">
+          <iframe 
+            class="meal-video" 
+            src="" 
+            title="Meal Video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+            allowfullscreen>
+          </iframe>
+        </div>
       </div>
 
-      <div class="btn btn-danger mt-3 mb-4">Generate Random Meal</div>
+      <div class="btn btn-danger mt-3 mx-auto w-75">Generate Random Meal</div>
     </div>
   </div>
 
