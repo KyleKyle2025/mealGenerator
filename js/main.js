@@ -5,6 +5,7 @@ let mealName = document.querySelector(".meal-name");
 let placeholder = document.querySelector(".placeholder-img");
 let thumbnail = document.querySelector(".meal-thumb");
 let videoWrapper = document.querySelector(".ratio");
+let mealVid = document.querySelector(".meal-video");
 
 async function getMeal() {
   try {
