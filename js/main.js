@@ -6,7 +6,8 @@ let placeholder = document.querySelector(".placeholder-img");
 let thumbnail = document.querySelector(".meal-thumb");
 let mealVid = document.querySelector(".meal-video");
 let videoWrapper = document.querySelector(".ratio");
-
+let ingredientList = document.getElementById("ingredient-list");
+let instructions = document.getElementById("instructions");
 
 async function getMeal() {
   try {
@@ -35,7 +36,22 @@ async function getMeal() {
       videoWrapper.style.display = "none";
     }
 
-     catch (error) {
+    ingredientList.innerHTML = "";
+    for (let i = 1; i <= 20; i++) {
+      let ingredient = meal[`strIngredient${i}`];
+      let measure = meal[`strMeasure${i}`];
+      if (ingredient && ingredient.trim() !== "") {
+        let li = document.createElement("li");
+        li.className = "list-group-item";
+        li.textContent = `${ingredient} – ${measure}`;
+        ingredientList.appendChild(li);
+      }
+    }
+
+    
+    instructions.textContent = meal.strInstructions;
+
+  } catch (error) {
     mealName.textContent = "Oops! Couldn't load a meal. Try again.";
     console.error("Fetch error:", error);
   }
