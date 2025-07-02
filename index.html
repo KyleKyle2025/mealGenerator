@@ -20,21 +20,20 @@
         <h2 class="fw-bolder mb-3">Today's meal suggestion:</h2>
         <h3 class="mb-4 meal-name">Click the button to get a tasty surprise!</h3>
 
+        <!-- Placeholder shown by default -->
         <img 
           src="./images/plate.jpg" 
           class="img-fluid rounded mb-4 placeholder-img" 
           alt="Placeholder Meal"
         />
 
-        <div class="ratio ratio-16x9 mb-3" style="display: none;">
-          <iframe 
-            allow="fullscreen"
-            class="meal-video" 
-            src="" 
-            allowfullscreen
-            title="Meal Video">
-          </iframe>
-        </div>
+        <!-- Real meal image hidden until click -->
+        <img 
+          src="" 
+          class="img-fluid rounded mb-4 meal-thumb" 
+          alt="Meal Image" 
+          style="display: none;"
+        />
       </div>
 
       <div class="btn btn-danger mt-3 mb-4">Generate Random Meal</div>
