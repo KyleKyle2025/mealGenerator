@@ -20,14 +20,14 @@
         <h2 class="fw-bolder mb-3">Today's meal suggestion:</h2>
         <h3 class="mb-4 meal-name">Click the button to get a tasty surprise!</h3>
 
-        <!-- Placeholder shown by default -->
+        
         <img 
           src="./images/plate.jpg" 
           class="img-fluid rounded mb-4 placeholder-img" 
           alt="Placeholder Meal"
         />
 
-        <!-- Real meal image -->
+        
         <img 
           src="" 
           class="img-fluid rounded mb-4 meal-thumb" 
@@ -35,7 +35,7 @@
           style="display: none;"
         />
 
-        <!-- Optional YouTube video embed -->
+        
         <div class="ratio ratio-16x9 mb-3" style="display: none;">
           <iframe 
             class="meal-video"
@@ -44,6 +44,18 @@
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
             allowfullscreen>
           </iframe>
+        </div>
+      </div>
+
+       <div class="text-start mb-3">
+          <h4>📝 Ingredients</h4>
+          <ul id="ingredient-list" class="list-group mb-3"></ul>
+        </div>
+
+        <!-- Instructions -->
+        <div class="text-start">
+          <h4>👨‍🍳 Instructions</h4>
+          <p id="instructions" class="lead"></p>
         </div>
       </div>
 
