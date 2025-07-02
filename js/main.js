@@ -1,9 +1,9 @@
 let apiUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
 
 let btn = document.querySelector(".btn");
-let mealVid = document.querySelector(".meal-video");
 let mealName = document.querySelector(".meal-name");
 let placeholder = document.querySelector(".placeholder-img");
+let thumbnail = document.querySelector(".meal-thumb");
 let videoWrapper = document.querySelector(".ratio");
 
 async function getMeal() {
@@ -15,12 +15,18 @@ async function getMeal() {
     // Update meal name
     mealName.textContent = meal.strMeal;
 
+    // Update image thumbnail
+    thumbnail.src = meal.strMealThumb;
+    thumbnail.alt = meal.strMeal;
+    thumbnail.style.display = "block";
+
     // Hide placeholder image
     if (placeholder) placeholder.style.display = "none";
 
-    // Show and update video
+     // Show and update video
     mealVid.src = meal.strYoutube.replace("watch?v=", "embed/");
     videoWrapper.style.display = "block";
+
 
   } catch (error) {
     mealName.textContent = "Oops! Couldn't load a meal. Try again.";
