@@ -27,13 +27,24 @@
           alt="Placeholder Meal"
         />
 
-        <!-- Real meal image hidden until click -->
+        <!-- Real meal image -->
         <img 
           src="" 
           class="img-fluid rounded mb-4 meal-thumb" 
           alt="Meal Image" 
           style="display: none;"
         />
+
+        <!-- Optional YouTube video embed -->
+        <div class="ratio ratio-16x9 mb-3" style="display: none;">
+          <iframe 
+            class="meal-video"
+            src=""
+            title="Meal Video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+            allowfullscreen>
+          </iframe>
+        </div>
       </div>
 
       <div class="btn btn-danger mt-3 mb-4">Generate Random Meal</div>
