@@ -18,9 +18,16 @@ async function getMeal() {
     // Hide placeholder image
     if (placeholder) placeholder.style.display = "none";
 
-    // Show and update video
-    mealVid.src = meal.strYoutube.replace("watch?v=", "embed/");
-    videoWrapper.style.display = "block";
+    // Check if the video exists and embed it properly
+    if (meal.strYoutube && meal.strYoutube.includes("watch?v=")) {
+      const embedUrl = meal.strYoutube.replace("watch?v=", "embed/");
+      mealVid.src = embedUrl;
+      videoWrapper.style.display = "block";
+    } else {
+      // Hide video if not available
+      mealVid.src = "";
+      videoWrapper.style.display = "none";
+    }
 
   } catch (error) {
     mealName.textContent = "Oops! Couldn't load a meal. Try again.";
