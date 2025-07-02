@@ -4,6 +4,8 @@ let btn = document.querySelector(".btn");
 let mealName = document.querySelector(".meal-name");
 let placeholder = document.querySelector(".placeholder-img");
 let thumbnail = document.querySelector(".meal-thumb");
+let mealVid = document.querySelector(".meal-video");
+let videoWrapper = document.querySelector(".ratio");
 
 async function getMeal() {
   try {
@@ -19,8 +21,18 @@ async function getMeal() {
     thumbnail.alt = meal.strMeal;
     thumbnail.style.display = "block";
 
-    // Hide placeholder
+    // Hide placeholder image
     if (placeholder) placeholder.style.display = "none";
+
+    // Show video if valid YouTube link exists
+    if (meal.strYoutube && meal.strYoutube.includes("watch?v=")) {
+      const embedUrl = meal.strYoutube.replace("watch?v=", "embed/");
+      mealVid.src = embedUrl;
+      videoWrapper.style.display = "block";
+    } else {
+      mealVid.src = "";
+      videoWrapper.style.display = "none";
+    }
 
   } catch (error) {
     mealName.textContent = "Oops! Couldn't load a meal. Try again.";
