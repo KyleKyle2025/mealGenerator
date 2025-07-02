@@ -1,33 +1,38 @@
-let apiUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
+const apiUrl = "https://www.themealdb.com/api/json/v1/1/random.php";
 
-let btn = document.querySelector(".btn");
-let mealName = document.querySelector(".meal-name");
-let placeholder = document.querySelector(".placeholder-img");
-let thumbnail = document.querySelector(".meal-thumb");
-let videoWrapper = document.querySelector(".ratio");
-let mealVid = document.querySelector(".meal-video");
+const btn = document.querySelector(".btn");
+const mealName = document.querySelector(".meal-name");
+const placeholder = document.querySelector(".placeholder-img");
+const thumbnail = document.querySelector(".meal-thumb");
+const videoWrapper = document.querySelector(".ratio");
+const mealVid = document.querySelector(".meal-video");
 
 async function getMeal() {
   try {
-    let response = await fetch(apiUrl);
-    let data = await response.json();
-    let meal = data.meals[0];
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+    const meal = data.meals[0];
 
     // Update meal name
     mealName.textContent = meal.strMeal;
 
-    // Update image thumbnail
+    // Show real meal image
     thumbnail.src = meal.strMealThumb;
     thumbnail.alt = meal.strMeal;
     thumbnail.style.display = "block";
 
-    // Hide placeholder image
+    // Hide placeholder
     if (placeholder) placeholder.style.display = "none";
 
-     // Show and update video
-    mealVid.src = meal.strYoutube.replace("watch?v=", "embed/");
-    videoWrapper.style.display = "block";
-
+    // Embed YouTube video if available
+    if (meal.strYoutube && meal.strYoutube.includes("watch?v=")) {
+      const embedUrl = meal.strYoutube.replace("watch?v=", "embed/");
+      mealVid.src = embedUrl;
+      videoWrapper.style.display = "block";
+    } else {
+      mealVid.src = "";
+      videoWrapper.style.display = "none";
+    }
 
   } catch (error) {
     mealName.textContent = "Oops! Couldn't load a meal. Try again.";
